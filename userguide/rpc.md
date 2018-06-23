@@ -71,7 +71,10 @@ Here is how you can call it:
 
 #### Via an MQTT server, talking to an device idendified by its ID esp32_6732ac:
 <pre class="command-line language-bash" data-user="chris" data-host="localhost" data-output="2"><code>mos --port mqtt://my.mqtt.server:1883/esp32_6732ac call Sum '{"a":1, "b": 2}'
-3</code></pre>
+3</code>
+or 
+mosquitto_pub -h my.mqtt.server -t esp32_6732ac/rpc -m '{"src":"out-topic","id":123,"method":"sum","args":{"a": 1, "b":2}}'
+</pre>
 
 To see a list of all RPC services implemented by a device, call `RPC.List`:
 
